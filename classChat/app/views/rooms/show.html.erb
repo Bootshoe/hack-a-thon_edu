@@ -2,12 +2,12 @@
 
 <p>
   <strong>Class:</strong>
-  <%= @room.class %>
+  <%= @room.name %>
 </p>
 
 <p>
   <strong>Teacher:</strong>
-  <%= @room.teacher_id %>
+  <%= @room.teacher.name %>
 </p>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
