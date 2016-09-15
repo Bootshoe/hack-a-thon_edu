@@ -5,8 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Student.create(email: "john@doe.com", password: "password")
-Student.create(email: "jane@doe.com", password: "password")
-Teacher.create(email: "teacher@schoo.edu", password: "password")
-Teacher.create(email: "gymteacher@school.edu", password: "password")
+Room.delete_all
+Student.delete_all
+Teacher.delete_all
+Message.delete_all
+Room.create(name: "Chemestry 101 w/ Prof. Schoo", teacher_id: 1)
+Student.create(email: "john@doe.com", name: "John Doe", password: "password")
+Student.create(email: "jane@doe.com", name: "Jane Doe", password: "password")
+Teacher.create(email: "teacher@school.edu", name: "Mr. Jones", password: "password")
+Teacher.create(email: "gymteacher@school.edu", name: "Mrs. Shoe", password: "password")

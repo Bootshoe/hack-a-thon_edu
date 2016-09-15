@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @room = Room.find(params[:id])
   end
 
   # GET /rooms/new
@@ -69,6 +70,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:class, :teacher_id)
+      params.require(:room).permit(:name, :teacher_id)
     end
 end

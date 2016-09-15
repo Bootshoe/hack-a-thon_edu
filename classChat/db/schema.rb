@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160915225120) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string   "class"
+    t.string   "name"
     t.integer  "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160915225120) do
 
   create_table "students", force: :cascade do |t|
     t.string   "email"
+    t.string   "name"
     t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160915225120) do
 
   create_table "teachers", force: :cascade do |t|
     t.string   "email"
+    t.string   "name"
     t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
