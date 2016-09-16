@@ -24,17 +24,19 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
-    @message.student = current_student
-    p @message.room_id
+    message = Message.new(message_params)
+    message.student = current_student
+    p message.room_id
 
     respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
+      if message.save
+        ActionCable.server.broadcast 'messages',
+          message: message.content,
+          student: message.student.name
+        head :ok
       else
         format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.json { render json: message.errors, status: :unprocessable_entity }
       end
     end
   end

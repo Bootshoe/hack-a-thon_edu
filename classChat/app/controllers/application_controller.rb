@@ -9,7 +9,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def logged_in?
+  def logged_as_student?
     !!current_student
+  end
+
+  def current_teacher
+    if session[:teacher_id]
+      @current_teacher ||= Teacher.find(session[:teacher_id])
+    end
+  end
+
+  def logged_as_teacher?
+    !!current_teacher
   end
 end
