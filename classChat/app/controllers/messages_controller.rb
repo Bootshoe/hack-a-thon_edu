@@ -28,17 +28,17 @@ class MessagesController < ApplicationController
     message.student = current_student
     p message.room_id
 
-    respond_to do |format|
+    #respond_to do |format|
       if message.save
         ActionCable.server.broadcast 'messages',
           message: message.content,
           student: message.student.name
-        head :ok
-      else
-        format.html { render :new }
-        format.json { render json: message.errors, status: :unprocessable_entity }
+        # head :ok
       end
-    end
+      #   format.html { render :new }
+      #   format.json { render json: message.errors, status: :unprocessable_entity }
+      # end
+    #end
   end
 
   # PATCH/PUT /messages/1
