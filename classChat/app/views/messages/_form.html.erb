@@ -14,16 +14,7 @@
   <div class="field">
     <%= f.label :content %>
     <%= f.text_field :content %>
-  </div>
-
-  <div class="field">
-    <%= f.label :student_id %>
-    <%= f.number_field :student_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :room_id %>
-    <%= f.number_field :room_id %>
+    <%= f.hidden_field :room_id, value: room.id %>
   </div>
 
   <div class="actions">
