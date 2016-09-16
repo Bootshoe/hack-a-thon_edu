@@ -26,6 +26,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.student = current_student
+    p @message.room_id
 
     respond_to do |format|
       if @message.save
