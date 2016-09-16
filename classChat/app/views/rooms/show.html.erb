@@ -3,12 +3,18 @@
 <p>
   <strong>Class:</strong>
   <%= @room.name %>
-</p>
-
-<p>
   <strong>Teacher:</strong>
   <%= @room.teacher.name %>
 </p>
 
-<%= link_to 'Edit', edit_room_path(@room) %> |
+<div id='room-container'>
+  <div id='chat-pannel'>
+    <%= render partial: 'messages/message', collection: @room.messages %>
+  </div>
+  <div id='new-msg-panel'>
+    <%= render partial: 'messages/form', locals: {message: @message, room: @room}%>
+  </div>
+</div>
+
+
 <%= link_to 'Back', rooms_path %>
